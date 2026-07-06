@@ -165,7 +165,7 @@ export default function MatrixInverseCalculator() {
                   value={val}
                   onChange={(e) => setCell(i, j, e.target.value)}
                   onFocus={(e) => e.target.select()}
-                  inputMode="decimal"
+                  inputMode="text"
                   aria-label={`a${i + 1}${j + 1}`}
                   className="font-mono text-center text-base font-semibold outline-none transition-shadow"
                   style={{
