@@ -1,30 +1,30 @@
-'use client'
+"use client";
 
-import React, { useMemo, useState } from 'react'
-import { invertMatrix, type Matrix } from '../lib/Matrix';
-import BracketEdge from './BracketEdge';
+import { useMemo, useState } from "react";
+import { invertMatrix, type Matrix } from "../lib/Matrix"
 
 const SIZES = [2, 3, 4, 5, 6];
+
 const INK = "#3d2a4a";
 const MUTED = "#7a6a83";
-const PINK = "#d6497a";
+const BLUE = "#2f6fb0";
 const PURPLE = "#6b3fa0";
 const BRACKET = "#a68fd9";
 const RED = "#c0392b";
-const DARK_PILL = "#2f2140";
-const CELL_BG = "#fdf1e4";
-const CELL_BORDER = "#f0d9b5";
+const DARK_PILL = "#1e3a5f";
+const CELL_BG = "#eaf3fb";
+const CELL_BORDER = "#c9def2";
 const TRACE_BG = "#f8f5fb";
 const TRACE_BORDER = "#e5dcf0";
 
-function makeGrid(n: number, fill: string): string[][]{
-  return Array.from({
-    length: n
-  }, () => Array.from({ length: n }, () => fill));
+function makeGrid(n: number, fill: string): string[][] {
+  return Array.from({ length: n }, () => Array.from({ length: n }, () => fill));
 }
 
-function identityGrid(n: number): string[][]{
-  return Array.from({ length: n }, (_, i) => Array.from({ length: n }, (_, j) => (i === j ? "1" : "0")));
+function identityGrid(n: number): string[][] {
+  return Array.from({ length: n }, (_, i) =>
+    Array.from({ length: n }, (_, j) => (i === j ? "1" : "0"))
+  );
 }
 
 function fmt(x: number): string {
@@ -33,16 +33,16 @@ function fmt(x: number): string {
   return s;
 }
 
-export default function MatrixInversecalculator() {
+export default function MatrixInverseCalculator() {
   const [n, setN] = useState(3);
-  const [cells, setCells] = useState<string[][]>(identityGrid(3));
+  const [cells, setCells] = useState<string[][]>(makeGrid(3, "0"));
   const [result, setResult] = useState<null | ReturnType<typeof invertMatrix>>(null);
   const [error, setError] = useState<string | null>(null);
-  const [showTrace, setShowTrace] = useState<boolean>(false);
+  const [showTrace, setShowTrace] = useState(false);
 
   function changeSize(next: number) {
     setN(next);
-    setCells(identityGrid(next));
+    setCells(makeGrid(next, "0"));
     setResult(null);
     setError(null);
     setShowTrace(false);
@@ -53,13 +53,15 @@ export default function MatrixInversecalculator() {
       const copy = prev.map((row) => [...row]);
       copy[i][j] = value;
       return copy;
-    })
+    });
   }
 
   function randomize() {
     setCells(
-      Array.from({length: n}, ()=> Array.from({length: n}, ()=> String(Math.floor(Math.random() * 17) - 8)))
-    )
+      Array.from({ length: n }, () =>
+        Array.from({ length: n }, () => String(Math.floor(Math.random() * 17) - 8))
+      )
+    );
     setResult(null);
     setError(null);
     setShowTrace(false);
@@ -74,30 +76,32 @@ export default function MatrixInversecalculator() {
 
   function compute() {
     const parsed: Matrix = [];
-    for (let i = 0; i < n; i++){
+    for (let i = 0; i < n; i++) {
       const row: number[] = [];
-      for (let j = 0; j < n; j++){
+      for (let j = 0; j < n; j++) {
         const raw = cells[i][j].trim();
         const val = raw === "" ? 0 : Number(raw);
         if (Number.isNaN(val)) {
           setError(`Row ${i + 1}, column ${j + 1} isn't a valid number.`);
           setResult(null);
-          return
+          return;
         }
         row.push(val);
       }
       parsed.push(row);
     }
-    setError(null)
-    setShowTrace(false)
+    setError(null);
+    setShowTrace(false);
     setResult(invertMatrix(parsed));
   }
+
   const canCompute = useMemo(() => cells.every((row) => row.every((c) => c.trim() !== "")), [cells]);
+
   return (
     <div className="w-full">
       <span
         className="inline-block text-xs font-bold tracking-wide px-3 py-1 rounded-full mb-4"
-        style={{ background: "#fbdce6", color: "#c9457a" }}
+        style={{ background: "#dbe9f7", color: "#1f5a8f" }}
       >
         TRY IT YOURSELF
       </span>
@@ -107,7 +111,7 @@ export default function MatrixInversecalculator() {
       >
         Solve your own matrix inverse <span aria-hidden></span>
       </h2>
- 
+
       <div
         className="rounded-3xl bg-white p-6 sm:p-8"
         style={{ boxShadow: "0 8px 30px rgba(61,42,74,0.10)" }}
@@ -120,7 +124,7 @@ export default function MatrixInversecalculator() {
                 onClick={() => changeSize(s)}
                 className="font-semibold text-sm px-4 py-2 rounded-full transition-colors"
                 style={{
-                  background: s === n ? PINK : "#ffffff",
+                  background: s === n ? BLUE : "#ffffff",
                   color: s === n ? "#ffffff" : MUTED,
                   border: s === n ? "none" : "1px solid #e8dde8",
                 }}
@@ -129,7 +133,7 @@ export default function MatrixInversecalculator() {
               </button>
             ))}
           </div>
- 
+
           <div className="flex items-center gap-4">
             <button
               onClick={randomize}
@@ -147,7 +151,7 @@ export default function MatrixInversecalculator() {
             </button>
           </div>
         </div>
- 
+
         <div className="flex items-stretch justify-center gap-0 overflow-x-auto py-2">
           <BracketEdge side="left" />
           <div
@@ -172,21 +176,21 @@ export default function MatrixInversecalculator() {
                     height: 48,
                     width: "100%",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#e0bd85")}
+                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#8fb8e0")}
                   onMouseLeave={(e) => {
                     if (document.activeElement !== e.currentTarget) {
                       e.currentTarget.style.borderColor = CELL_BORDER;
                     }
                   }}
                   onBlur={(e) => (e.currentTarget.style.borderColor = CELL_BORDER)}
-                  onFocusCapture={(e) => (e.currentTarget.style.borderColor = PINK)}
+                  onFocusCapture={(e) => (e.currentTarget.style.borderColor = BLUE)}
                 />
               ))
             )}
           </div>
           <BracketEdge side="right" />
         </div>
- 
+
         <div className="flex flex-col items-center mt-8">
           <button
             onClick={compute}
@@ -194,7 +198,7 @@ export default function MatrixInversecalculator() {
             className="font-semibold text-base px-8 py-3.5 rounded-full text-white transition-opacity disabled:opacity-40 flex items-center gap-2"
             style={{ background: DARK_PILL }}
           >
-            <span aria-hidden>✨</span> compute inverse
+            <span aria-hidden></span> compute inverse
           </button>
           {!canCompute && (
             <span className="font-mono text-xs mt-3" style={{ color: MUTED }}>
@@ -208,7 +212,7 @@ export default function MatrixInversecalculator() {
           )}
         </div>
       </div>
- 
+
       {/* Result card */}
       {result && (
         <div
@@ -224,7 +228,7 @@ export default function MatrixInversecalculator() {
               {fmt(result.determinant)}
             </span>
           </div>
- 
+
           {result.singular || !result.inverse ? (
             <div>
               <p className="font-bold text-xl mb-2" style={{ color: RED }}>
@@ -264,7 +268,7 @@ export default function MatrixInversecalculator() {
                 </div>
                 <BracketEdge side="right" tall />
               </div>
- 
+
               <div className="flex justify-center">
                 <button
                   onClick={() => setShowTrace((v) => !v)}
@@ -274,7 +278,7 @@ export default function MatrixInversecalculator() {
                   {showTrace ? "hide" : "show"} elimination trace ({result.steps.length} steps)
                 </button>
               </div>
- 
+
               {showTrace && (
                 <div
                   className="rounded-2xl p-4 font-mono text-xs leading-relaxed overflow-x-auto mt-4"
@@ -305,5 +309,21 @@ export default function MatrixInversecalculator() {
         </div>
       )}
     </div>
-  )
+  );
+}
+
+function BracketEdge({ side, tall = false }: { side: "left" | "right"; tall?: boolean }) {
+  return (
+    <div
+      aria-hidden
+      style={{
+        width: 12,
+        borderTop: `3px solid ${BRACKET}`,
+        borderBottom: `3px solid ${BRACKET}`,
+        borderLeft: side === "left" ? `3px solid ${BRACKET}` : "none",
+        borderRight: side === "right" ? `3px solid ${BRACKET}` : "none",
+        margin: tall ? "2px 0" : "10px 0",
+      }}
+    />
+  );
 }

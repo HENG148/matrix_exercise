@@ -42,14 +42,14 @@ export default function HeroSection() {
       onMouseMove={handleMouseMove}
       className={`relative overflow-hidden ${nunito.className}`}
       style={{
-        background: "linear-gradient(135deg, #fdeaf0 0%, #f3ecf9 55%, #fdeaf0 100%)"
+        background: "linear-gradient(135deg, #eaf3fb 0%, #e9eefb 55%, #eaf3fb 100%)"
       }}
     >
       <div aria-hidden
         className="absolute -left-16 top-10 w-56 h-56 rounded-full opacity-60 pointer-events-none"
         style={{
           background: "#cdbdf0",
-          filter: "blue(40px)",
+          filter: "blur(40px)",
           transform: `translate(${offset.x * 18}px, ${offset.y * 18}px)`,
           transition: "transform 0.3s ease-out",
         }}
@@ -69,7 +69,7 @@ export default function HeroSection() {
         aria-hidden
         className="absolute left-16 bottom-0 w-20 h-20 rounded-full opacity-60 pointer-events-none"
         style={{
-          background: "#f2b8cf",
+          background: "#b8d4f2",
           filter: "blur(18px)",
           transform: `translate(${offset.x * 10}px, ${offset.y * 10}px)`,
           transition: "transform 0.3s ease-out",
@@ -81,7 +81,7 @@ export default function HeroSection() {
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-white text-sm"
               style={{
-              background: "linear-gradient(135deg, #e75480, #c9457a)"
+              background: "linear-gradient(135deg, #4a90d9, #2472a4)"
               }}
             >
               M⁻¹
@@ -116,10 +116,10 @@ export default function HeroSection() {
             >
               Let&apos;s find your {" "}
               <span className="relative inline-block">
-                <span className="absolute inset-x-0 bottom-1 h-3 rounded-sm bg-[#f7c3d6]"
+                <span className="absolute inset-x-0 bottom-1 h-3 rounded-sm bg-[#cfe4f7]"
                   aria-hidden
                 />
-                <span className="relative text-[#d6497a]">
+                <span className="relative text-[#2f6fb0]">
                   matrix inverse
                 </span>
               </span>
@@ -135,8 +135,8 @@ export default function HeroSection() {
               href="#calculator"
               className="cta-btn fade-in-4 inline-flex items-center gap-2 font-semibold px-6 py-3.5 rounded-full text-white transition-transform hover:scale-[1.03] shadow-lg"
               style={{
-                background: "linear-gradient(135deg, #ea5d8a, #d6497a)",
-                boxShadow: "0 10px 25px -8px rgba(214, 73, 122, 0.55)",
+                background: "linear-gradient(135deg, #4a90d9, #2f6fb0)",
+                boxShadow: "0 10px 25px -8px rgba(47, 111, 176, 0.55)",
               }}>
               Start calculator
               <span className="cta-arrow" aria-hidden>→</span>

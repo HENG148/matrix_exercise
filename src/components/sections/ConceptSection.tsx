@@ -1,9 +1,9 @@
 export default function ConceptSection() {
   return (
-    <section className="max-w-5xl mx-auto px-6 sm:px-10 py-16">
+    <section className="max-w-5xl mx-auto px-6 sm:px-10 pt-4 pb-20">
       <span
         className="inline-block text-xs font-bold tracking-wide px-3 py-1 rounded-full mb-4"
-        style={{ background: "#fbdce6", color: "#c9457a" }}
+        style={{ background: "#dbe9f7", color: "#1f5a8f" }}
       >
         CONCEPT
       </span>
@@ -11,7 +11,7 @@ export default function ConceptSection() {
         className="font-bold mb-8 flex items-center gap-2"
         style={{ color: "#3d2a4a", fontSize: "clamp(1.6rem, 3vw, 2.2rem)" }}
       >
-        What&apos;s a matrix inverse? <span aria-hidden></span>
+        What&apos;s a matrix inverse? <span aria-hidden>🤔</span>
       </h2>
 
       <div className="grid md:grid-cols-2 gap-6 items-stretch">
@@ -35,18 +35,18 @@ export default function ConceptSection() {
 
           <ul className="space-y-3">
             <li className="flex gap-2 text-sm sm:text-base" style={{ color: "#4a3d54" }}>
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#d6497a" }} />
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#2f6fb0" }} />
               <span className="font-mono">A · A⁻¹ = A⁻¹ · A = I</span>
             </li>
             <li className="flex gap-2 text-sm sm:text-base" style={{ color: "#4a3d54" }}>
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#d6497a" }} />
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#2f6fb0" }} />
               <span>
                 A matrix only has an inverse if its determinant is nonzero{" "}
                 <span className="font-mono">(det(A) ≠ 0)</span>.
               </span>
             </li>
             <li className="flex gap-2 text-sm sm:text-base" style={{ color: "#4a3d54" }}>
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#d6497a" }} />
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#2f6fb0" }} />
               <span>
                 If <span className="font-mono">det(A) = 0</span>, the matrix is called{" "}
                 <strong>singular</strong> — it has no inverse.

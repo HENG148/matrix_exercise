@@ -5,10 +5,10 @@ import ConceptSection from "../components/sections/ConceptSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ background: "#fdf8fb" }}>
+    <div className="min-h-screen" style={{ background: "#f7fafd" }}>
       <HeroSection />
 
-      <div style={{ background: "linear-gradient(180deg, #fdeaf0 0%, #fdf8fb 100%)" }}>
+      <div style={{ background: "linear-gradient(180deg, #eaf3fb 0%, #f7fafd 100%)" }}>
         <ConceptSection />
       </div>
 
