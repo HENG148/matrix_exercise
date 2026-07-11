@@ -5,10 +5,10 @@ import ConceptSection from "../components/sections/ConceptSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ background: "#f7fafd" }}>
+    <div className="min-h-screen bg-[#f7fafd]">
       <HeroSection />
 
-      <div style={{ background: "linear-gradient(180deg, #eaf3fb 0%, #f7fafd 100%)" }}>
+      <div className="bg-linear-to-b from-[#eaf3fb] to-[#f7fafd]">
         <ConceptSection />
       </div>
 
@@ -16,8 +16,8 @@ export default function Home() {
         <MatrixInversecalculator />
       </main>
 
-      <footer className="max-w-3xl mx-auto px-6 pb-16"> 
-        <p className="font-mono text-xs" style={{ color: "var(--line)" }}>
+      <footer className="max-w-3xl mx-auto px-6 pb-16">
+        <p className="font-mono text-xs text-(--line)">
           Computation runs entirely in your browser - nothing is sent anywhere.
         </p>
       </footer>

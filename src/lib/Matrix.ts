@@ -54,13 +54,13 @@ export function invertMatrix(A: Matrix): InverseResult {
       [aug[col], aug[pivotRow]] = [aug[pivotRow], aug[col]];
       sign *= -1;
       steps.push({
-        label: `Swap R${col + 1} <-> R${pivotRow + 1} (partial pivoiting)`,
+        label: `Swap R${col + 1} <-> R${pivotRow + 1} (partial pivoting)`,
         augmented: cloneMatrix(aug),
       })
     }
 
     const pivotVal = aug[col][col];
-    pivotProduct *= pivotRow;
+    pivotProduct *= pivotVal;
 
     if (Math.abs(pivotVal - 1) > 1e-12) {
       aug[col] = aug[col].map((v) => v / pivotVal);

@@ -37,63 +37,46 @@ export default function HeroSection() {
   const current = EXAMPLES[exampleIdx];
 
   return (
-    <div 
+    <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className={`relative overflow-hidden ${nunito.className}`}
-      style={{
-        background: "linear-gradient(135deg, #eaf3fb 0%, #e9eefb 55%, #eaf3fb 100%)"
-      }}
+      className={`relative overflow-hidden bg-[linear-gradient(135deg,#eaf3fb_0%,#e9eefb_55%,#eaf3fb_100%)] ${nunito.className}`}
     >
-      <div aria-hidden
-        className="absolute -left-16 top-10 w-56 h-56 rounded-full opacity-60 pointer-events-none"
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-16 top-10 h-56 w-56 rounded-full bg-[#cdbdf0] opacity-60 blur-2xl transition-transform duration-300 ease-out"
         style={{
-          background: "#cdbdf0",
-          filter: "blur(40px)",
           transform: `translate(${offset.x * 18}px, ${offset.y * 18}px)`,
-          transition: "transform 0.3s ease-out",
         }}
       />
       <div
         aria-hidden
-        className="absolute right-24 top-40 w-24 h-24 rounded-full opacity-70 pointer-events-none"
+        className="pointer-events-none absolute right-24 top-40 h-24 w-24 rounded-full bg-[#a8ddd0] opacity-70 blur-[20px] animate-[floatY_5s_ease-in-out_infinite] transition-transform duration-300 ease-out"
         style={{
-          background: "#a8ddd0",
-          filter: "blur(20px)",
-          animation: "floatY 5s ease-in-out infinite",
           transform: `translate(${offset.x * -12}px, ${offset.y * -12}px)`,
-          transition: "transform 0.3s ease-out",
         }}
       />
       <div
         aria-hidden
-        className="absolute left-16 bottom-0 w-20 h-20 rounded-full opacity-60 pointer-events-none"
+        className="pointer-events-none absolute bottom-0 left-16 h-20 w-20 rounded-full bg-[#b8d4f2] opacity-60 blur-[18px] transition-transform duration-300 ease-out"
         style={{
-          background: "#b8d4f2",
-          filter: "blur(18px)",
           transform: `translate(${offset.x * 10}px, ${offset.y * 10}px)`,
-          transition: "transform 0.3s ease-out",
         }}
       />
 
       <div className="relative max-w-6xl mx-auto px-6 sm:px-10">
         <nav className="flex items-center justify-between pt-8">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-white text-sm"
-              style={{
-              background: "linear-gradient(135deg, #4a90d9, #2472a4)"
-              }}
-            >
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#4a90d9,#2472a4)] text-sm font-bold text-white">
               M⁻¹
             </div>
-            <span className="font-semibold" style={{ color: "#4a2e5c" }}>
+            <span className="font-semibold text-[#4a2e5c]">
               matrix, solved
             </span>
           </div>
 
           <a href="#calculator"
-            className="text-sm font-medium px-4 py-2 rounded-full bg-white/70 backdrop-blur transition-colors hover:bg-white"
-            style={{ color: "#6b4478" }}
+            className="text-sm font-medium px-4 py-2 rounded-full bg-white/70 backdrop-blur transition-colors hover:bg-white text-[#6b4478]"
           >
             Matrix Inverse Project
           </a>
@@ -102,17 +85,12 @@ export default function HeroSection() {
         <div className="grid md:grid-cols-2 gap-10 items-center pt-16 pb-24">
           <div>
             <span
-              className=" fade-in-1 inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full mb-6"
-              style={{ background: "#fbe8a6", color: "#8a5a10" }}
+              className=" fade-in-1 inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full mb-6 bg-[#fbe8a6] text-[#8a5a10]"
             >
               Linear algebra, made friendly
             </span>
-            <h1 
-              className={`fade-in-2 font-bold leading-[1.05] mb-6 ${baloo.className}`}
-              style={{
-                color: "#3d2a4a",
-                fontSize: "clamp(2.4rem, 5vw, 3.75rem)",
-              }}
+            <h1
+              className={`fade-in-2 mb-6 font-bold leading-[1.05] text-[clamp(2.4rem,5vw,3.75rem)] text-[#3d2a4a] ${baloo.className}`}
             >
               Let&apos;s find your {" "}
               <span className="relative inline-block">
@@ -133,13 +111,12 @@ export default function HeroSection() {
             </p>
             <a
               href="#calculator"
-              className="cta-btn fade-in-4 inline-flex items-center gap-2 font-semibold px-6 py-3.5 rounded-full text-white transition-transform hover:scale-[1.03] shadow-lg"
-              style={{
-                background: "linear-gradient(135deg, #4a90d9, #2f6fb0)",
-                boxShadow: "0 10px 25px -8px rgba(47, 111, 176, 0.55)",
-              }}>
+              className="cta-btn fade-in-4 inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,#4a90d9,#2f6fb0)] px-6 py-3.5 font-semibold text-white shadow-[0_10px_25px_-8px_rgba(47,111,176,0.55)] transition-transform hover:scale-[1.03]"
+            >
               Start calculator
-              <span className="cta-arrow" aria-hidden>→</span>
+              <span className="cta-arrow" aria-hidden>
+                →
+              </span>
             </a>
           </div>
 
