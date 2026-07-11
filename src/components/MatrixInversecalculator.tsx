@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo, useState } from 'react'
-import { makeGrid } from './Gridutils';
+import { makeGrid } from './GridUtils';
 import { invertMatrix, Matrix } from '../lib/Matrix';
 import { MatrixResult } from './MatrixResult';
 import { MatrixInputGrid } from './MatrixInputGrid';

@@ -1,6 +1,7 @@
 import { invertMatrix } from "../lib/Matrix";
 import BracketEdge from "./BracketEdge";
-import { fmt } from "./Gridutils";
+import { FractionDisplay } from "./FractionDisplay";
+import { fmt } from "./GridUtils";
 
 type Props = {
   n: number;
@@ -21,7 +22,8 @@ export function MatrixResult({ n, result, showTrace, onToggleTrace }: Props) {
           className="font-mono text-xl font-semibold"
           style={{ color: result.singular ? "#c0392b" : "#6b3fa0" }}
         >
-          {fmt(result.determinant)}
+          {/* {fmt(result.determinant)} */}
+          <FractionDisplay value={result.determinant} />
         </span>
       </div>
  
@@ -50,7 +52,8 @@ export function MatrixResult({ n, result, showTrace, onToggleTrace }: Props) {
                     key={`${i}-${j}`}
                     className="font-mono text-center text-base font-semibold flex items-center justify-center bg-[#eaf3fb] text-[#3d2a4a] border-2 border-[#c9def2] rounded-[12px] h-12 "
                   >
-                    {fmt(val)}
+                    {/* {fmt(val)} */}
+                    <FractionDisplay value={val} />
                   </div>
                 ))
               )}

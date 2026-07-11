@@ -14,6 +14,14 @@ type Props = {
 
 const SIZES = [2, 3, 4, 5, 6];
 
+const GRID_COLS: Record<number, string> = {
+  2: "grid-cols-[repeat(2,minmax(56px,64px))]",
+  3: "grid-cols-[repeat(3,minmax(56px,64px))]",
+  4: "grid-cols-[repeat(4,minmax(56px,64px))]",
+  5: "grid-cols-[repeat(5,minmax(56px,64px))]",
+  6: "grid-cols-[repeat(6,minmax(56px,64px))]",
+};
+
 export function MatrixInputGrid({ n, cells, canCompute, error, onChangeSize, onSetCell, onRandomize, onClear, onCompute }: Props) {
   return (
     <div className="rounded-3xl bg-white p-6 shadow-[0_8px_30px_rgba(61,42,74,0.10)] sm:p-8">
@@ -53,13 +61,7 @@ export function MatrixInputGrid({ n, cells, canCompute, error, onChangeSize, onS
       <div className="flex items-stretch justify-center gap-0 overflow-x-auto py-2">
         <BracketEdge side="left" />
         <div
-          className={`grid gap-3 p-4 ${
-            n === 3
-              ? "grid-cols-[repeat(3,minmax(56px,64px))]"
-              : n === 4
-              ? "grid-cols-[repeat(4,minmax(56px,64px))]"
-              : "grid-cols-[repeat(5,minmax(56px,64px))]"
-          }`}
+          className={`grid gap-3 p-4 ${GRID_COLS[n] ?? GRID_COLS[6]}`}
         >
           {cells.map((row, i) =>
             row.map((val, j) => (
