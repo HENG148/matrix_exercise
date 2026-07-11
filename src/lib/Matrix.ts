@@ -24,7 +24,7 @@ function formatNum(x: number): string{
 export function invertMatrix(A: Matrix): InverseResult {
   const n = A.length;
   const steps: EliminationStep[] = [];
-  let aug: Matrix = A.map((row, i) => [
+  const aug: Matrix = A.map((row, i) => [
     ...row,
     ...Array.from({length: n}, (_, j) => (i === j ? 1 : 0)),
   ])
