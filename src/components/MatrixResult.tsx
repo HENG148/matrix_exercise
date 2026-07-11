@@ -1,7 +1,7 @@
 import { invertMatrix } from "../lib/Matrix";
 import BracketEdge from "./BracketEdge";
 import { FractionDisplay } from "./FractionDisplay";
-import { fmt } from "./GridUtils";
+import { fmt } from "./gridUtils";
 
 type Props = {
   n: number;

@@ -1,6 +1,6 @@
 "use client";
 
-import { fmtFractionParts } from "./GridUtils";
+import { fmtFractionParts } from "./gridUtils";
 
 export function FractionDisplay({ value, className = "" }: { value: number; className?: string }) {
   const parts = fmtFractionParts(value);

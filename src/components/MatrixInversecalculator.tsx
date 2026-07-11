@@ -1,10 +1,10 @@
 "use client"
 
 import { useMemo, useState } from 'react'
-import { makeGrid } from './GridUtils';
 import { invertMatrix, Matrix } from '../lib/Matrix';
 import { MatrixResult } from './MatrixResult';
 import { MatrixInputGrid } from './MatrixInputGrid';
+import { makeGrid } from './gridUtils';
 
 export default function MatrixInversecalculator() {
   const [n, setN] = useState<number>(3);
